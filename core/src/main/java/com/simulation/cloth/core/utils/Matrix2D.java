@@ -1,11 +1,9 @@
 package com.simulation.cloth.core.utils;
 
-import com.simulation.cloth.core.utils.Vector2D;
-
 public class Matrix2D {
     private double[][] matrix = new double[3][3];
 
-    Matrix2D() { // Identity matrix
+    public Matrix2D() { // Identity matrix
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (i == j) {
@@ -17,7 +15,7 @@ public class Matrix2D {
         }
     }
 
-    Matrix2D(double[][] matrix) { // Copy the other matrix
+    public Matrix2D(double[][] matrix) { // Copy the other matrix
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 this.matrix[i][j] = matrix[i][j];
@@ -25,7 +23,7 @@ public class Matrix2D {
         }
     }
 
-    Matrix2D(double col1[], double col2[], double col3[]) {
+    public Matrix2D(double col1[], double col2[], double col3[]) {
         for (int i = 0; i < 3; i++) {
             matrix[i][0] = col1[i];
             matrix[i][1] = col2[i];
@@ -70,10 +68,14 @@ public class Matrix2D {
     }
 
     public double[][] multiplyToVector(Vector2D vector) {
+        double[] homoVector = { vector.getX(), vector.getY(), 1 };
         double[][] result = new double[3][1];
+
         for (int i = 0; i < 3; i++) {
-            result[i][0] = this.matrix[i][0] * vector.getX() + this.matrix[i][1] * vector.getY()
-                    + this.matrix[i][2] * 1;
+            result[i][0] = 0;
+            for (int j = 0; j < 3; j++) {
+                result[i][0] += this.matrix[i][j] * homoVector[j];
+            }
         }
         return result;
     }

@@ -4,18 +4,18 @@ public class Vector2D {
     private double x;
     private double y;
 
-    Vector2D(double x, double y) { // Normal Contructor
+    public Vector2D(double x, double y) { // Normal Contructor
         this.x = x;
         this.y = y;
     }
 
-    Vector2D(Vector2D other) { // Copy Contructor (used when a new object copies the position of another
-                               // object)
+    public Vector2D(Vector2D other) { // Copy Contructor (used when a new object copies the position of another
+        // object)
         this.x = other.x;
         this.y = other.y;
     }
 
-    Vector2D() { // position of the object is at origin
+    public Vector2D() { // position of the object is at origin
         this.x = 0;
         this.y = 0;
     }
