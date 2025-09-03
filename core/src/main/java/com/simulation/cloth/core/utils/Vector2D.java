@@ -1,5 +1,7 @@
 package com.simulation.cloth.core.utils;
 
+import com.simulation.cloth.core.geometry.Point2D;
+
 public class Vector2D {
     private double x;
     private double y;
@@ -20,6 +22,10 @@ public class Vector2D {
         this.y = 0;
     }
 
+    public Vector2D(Point2D point) {
+        this.x = point.getX();
+        this.y = point.getY();
+    }
     // Getter and Setter Methods
     // --------------------------------------------------------------------------------------------------
 
