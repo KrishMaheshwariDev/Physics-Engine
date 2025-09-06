@@ -7,24 +7,30 @@ public class Point2D {
     private double x;
     private double y;
 
+    private boolean isExist = false;
+
     public Point2D() { // point position at origin
         this.x = 0;
         this.y = 0;
+        this.isExist = true;
     }
 
     public Point2D(double x, double y) { // Manual input
         this.x = x;
         this.y = y;
+        this.isExist = true;
     }
 
     public Point2D(Point2D point) { // duplicating the point
         this.x = point.x;
         this.y = point.y;
+        this.isExist = true;
     }
 
     public Point2D(Vector2D vector) { // from vector (for rare cases)
         this.x = vector.getX();
         this.y = vector.getY();
+        this.isExist = true;
     }
 
     // basic methods
@@ -43,6 +49,10 @@ public class Point2D {
 
     public void setY(double value) {
         this.y = value;
+    }
+
+    public boolean getExistence() {
+        return isExist;
     }
 
     public double distance(Point2D p) {
